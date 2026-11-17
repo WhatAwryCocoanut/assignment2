@@ -1,3 +1,4 @@
+package assignment2.src;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;

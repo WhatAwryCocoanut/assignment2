@@ -1,3 +1,4 @@
+package assignment2.src;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -96,9 +97,14 @@ public class CarView extends JFrame {
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary
         gasButton.addActionListener(e -> {
-            carC.gas(gasAmount);
+            carC.gas(gasAmount);            
         });
-
+        leftButton.addActionListener(e -> {
+            carC.turnLeft();
+        });
+        rightButton.addActionListener(e -> {
+            carC.turnRight();
+        });
         // Make the panel layout more compact
         this.pack();
 
