@@ -7,18 +7,19 @@ public class Saab95 extends Car{
         nrDoors = 2;
         setColor(Color.red);
         enginePower = 125;
-        turboOn = false;
+        setTurboOn();
+        setTurboOff();
         modelName = "Saab95";
         stopEngine();
-        x = 0;
-        y = 0;
+        x = 100;
+        y = 300;
         xy_direction_counter = 0;
     }
         
     @Override 
     public double speedFactor() {
         double turbo = 1;
-        if(turboOn) turbo = 1.3;
+        if(getTurbo()) turbo = 1.3;
         return enginePower * 0.01 * turbo;
     }
 

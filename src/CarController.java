@@ -31,9 +31,9 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            
             for (Car car : cars) {
                 car.move();
+                car.collision();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
                 frame.drawPanel.moveit(x, y);
@@ -44,6 +44,7 @@ public class CarController {
              
         }
     }
+
 
     void gas(int amount) {
         // TODO adapt to your needs
@@ -77,6 +78,16 @@ public class CarController {
     void stopAllCars(){
         for (Car car : cars){
             car.stopEngine();
+        }
+    }
+    void turboOn(){
+        for (Car car : cars){
+            car.setTurboOn();
+        }
+    }
+    void tuboOff(){
+        for (Car car : cars){
+            car.setTurboOff();
         }
     }
 }

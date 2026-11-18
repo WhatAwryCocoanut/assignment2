@@ -8,7 +8,7 @@ public abstract class Car implements Movable {
     protected double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     protected String modelName; // The car model name
-    protected boolean turboOn;
+    private boolean turboOn;
     protected double x;
     protected double y;
     protected double[][] xy_direction_list = {{0,-1}, {1,0}, {0,1}, {-1,0}}; //the turning direction where 0,1 is up; 1,0 is right; 0,-1 is down; -1,0 is left;
@@ -24,6 +24,13 @@ public abstract class Car implements Movable {
 
     public double getY(){
         return y;
+    }
+
+
+    public void collision (){
+        if(x < 0 || y < 0 || x > CarView.X - 115|| y > CarView.Y-240 - 60){
+            xy_direction_counter += 2;
+        }
     }
 
     public double getEnginePower() {
@@ -48,6 +55,10 @@ public abstract class Car implements Movable {
 
     public void stopEngine() {
         currentSpeed = 0;
+    }
+
+    public boolean getTurbo(){
+        return turboOn;
     }
 
     public void setTurboOn() {
