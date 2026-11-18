@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -12,18 +12,19 @@ public class DrawPanel extends JPanel {
     BufferedImage volvoImage;
     BufferedImage saabImage;
     // To keep track of a single car's position
-    //Point[] carPointList;
-    Point volvoPoint = new Point();
-    Point saabPoint = new Point();
+    ArrayList<Point> carPointList = new ArrayList<Point>();
+    ArrayList<String> carNames = new ArrayList<String>();
+    //ArrayList<BufferedImage> carImages = new ArrayList<BufferedImage>();
+    //Point volvoPoint = new Point();
+    //Point saabPoint = new Point();
+    Point carPoint = new Point();
 
 
     // TODO: Make this general for all cars
     
-    void moveit(int x, int y) {
-        volvoPoint.x = x;
-        volvoPoint.y = y;
-        saabPoint.x = x;
-        saabPoint.y = y;
+    void moveit(int i, int x, int y) {
+        carPointList.get(i).x = x;
+        carPointList.get(i).y = y;
     }
 
     // Initializes the panel and reads the images
@@ -42,14 +43,26 @@ public class DrawPanel extends JPanel {
         {
             ex.printStackTrace();
         }
+        for(int i = 0; i < carPointList.size(); i++){
+            
+        }
     }
 
     // This method is called each time the panel updates/refreshes/repaints itself
     // TODO: Change to suit your needs.
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        //g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
+        super.paintComponent(g);       
+        //g.drawImage(volvoImage, carPoint.x, carPoint.y, null); // see javadoc for more info on the parameters
+        for(int i = 0; i < carPointList.size(); i++){
+            if(carNames.get(i).equals("Saab95")){
+                g.drawImage(saabImage, carPointList.get(i).x, carPointList.get(i).y, null);
+                continue;
+            }
+            if(carNames.get(i).equals("Volvo240")){
+                g.drawImage(volvoImage, carPointList.get(i).x, carPointList.get(i).y, null);
+            }
+        }
+        
     }
 }

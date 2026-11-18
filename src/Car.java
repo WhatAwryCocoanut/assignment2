@@ -26,7 +26,11 @@ public abstract class Car implements Movable {
         return y;
     }
 
+    public String getModelName(){
+        return modelName;
+    }
 
+    // will cause it to clitch out if it doesn't return full on screen in one frame
     public void collision (){
         if(x < 0 || y < 0 || x > CarView.X - 115|| y > CarView.Y-240 - 60){
             xy_direction_counter += 2;
@@ -107,6 +111,7 @@ public abstract class Car implements Movable {
 
     public void turnLeft(){
         xy_direction_counter--;
+        if (xy_direction_counter < 0){xy_direction_counter = 4;}
     }
 
     public void turnRight(){

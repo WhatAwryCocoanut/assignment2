@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.awt.Point;
 
 /*
  * This class represents the Controller part in the MVC pattern.
@@ -21,8 +22,13 @@ public class CarController {
     CarView frame;
     // TODO A list of cars, modify if needed
     ArrayList<Car> cars = new ArrayList<>();
+    
 
     public void startTimer() {
+        for(int i = 0; i < cars.size(); i++){
+            frame.drawPanel.carPointList.add(new Point(0, 0));
+            frame.drawPanel.carNames.add(cars.get(i).getModelName());
+        }
         this.timer.start();
     }
 
@@ -31,12 +37,13 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
+            for(int i = 0; i < cars.size(); i++){
+                Car car = cars.get(i);
                 car.move();
                 car.collision();
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(i, x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.revalidate();
                 frame.drawPanel.repaint();
