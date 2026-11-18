@@ -24,14 +24,19 @@ public class CarController {
     ArrayList<Car> cars = new ArrayList<>();
     
 
-    public void startTimer() {
-        for(int i = 0; i < cars.size(); i++){
-            frame.drawPanel.carPointList.add(new Point(0, 0));
-            frame.drawPanel.carNames.add(cars.get(i).getModelName());
-        }
+    public void startTimer() {       
         this.timer.start();
     }
 
+    // will cause it to clitch out if it doesn't return full on screen in one frame
+    public void collision (Car car){
+            if((car.getX() < 0 && car.getDirection() == 3 )||
+            ( car.getY() < 0 && car.getDirection() == 0) || 
+            (car.getX() > CarView.X - 15 - frame.drawPanel.imageWidth && car.getDirection() == 1)||
+            (car.getY() > CarView.Y - 240 - frame.drawPanel.imageHeight && car.getDirection() == 2 )){
+            car.uTurn();        
+        }
+    }
     /* Each step, the TimerListener moves all cars in the list and tells the
      * view to update its images. TODO Change this method to your needs.
      */
@@ -40,7 +45,7 @@ public class CarController {
             for(int i = 0; i < cars.size(); i++){
                 Car car = cars.get(i);
                 car.move();
-                car.collision();
+                collision(car);
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
                 frame.drawPanel.moveit(i, x, y);

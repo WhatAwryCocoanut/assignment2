@@ -44,6 +44,10 @@ public class CarView extends JFrame {
     public CarView(String framename, CarController cc) {
         this.carC = cc;
         initComponents(framename);
+        for(Car car : carC.cars){
+            drawPanel.carPointList.add(new Point(0, 0));
+            drawPanel.carNames.add(car.getModelName());
+        }
     }
 
     // Sets everything in place and fits everything
