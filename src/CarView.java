@@ -1,4 +1,4 @@
-package assignment2.src;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -104,6 +104,15 @@ public class CarView extends JFrame {
         });
         rightButton.addActionListener(e -> {
             carC.turnRight();
+        });
+        brakeButton.addActionListener(e -> {
+            carC.brake(gasAmount);
+        });
+        startButton.addActionListener(e -> {
+            carC.startAllCars();
+        });
+        stopButton.addActionListener(e -> {
+            carC.stopAllCars();
         });
         // Make the panel layout more compact
         this.pack();

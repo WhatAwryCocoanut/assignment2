@@ -1,4 +1,4 @@
-package assignment2.src;
+
 import java.awt.*;
 
 public class Saab95 extends Car{

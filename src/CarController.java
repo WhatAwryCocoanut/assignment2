@@ -1,4 +1,4 @@
-package assignment2.src;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -52,6 +52,12 @@ public class CarController {
             car.gas(gas);
         }
         
+    }    
+    void brake(int amount){
+        double brake = ((double)amount) / 100;
+        for (Car car : cars){
+            car.brake(brake);
+        }
     }
     void turnLeft(){
         for (Car car : cars){
@@ -61,6 +67,16 @@ public class CarController {
     void turnRight(){
         for (Car car : cars){
             car.turnRight();
+        }
+    }
+    void startAllCars(){
+        for(Car car : cars){
+            car.startEngine();
+        }
+    }
+    void stopAllCars(){
+        for (Car car : cars){
+            car.stopEngine();
         }
     }
 }
