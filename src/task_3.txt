@@ -9,16 +9,21 @@ Volvo240
 
 
 CarApplication
-    Creates a new view and add exisiting csrd to viewcar
+    Creates a new view and add exisiting csrd to viewcars
 
 
 CarController
-    Creates the list of cars and updates everything at runtime
-
+    Updates everything at runtime
+    command all cars to take actions when an action method is called 
 
 CarView
     Adds all buttons and handels imputs from the buttons
+    Creates the frame for the cars with buttons and connect them to methods in cars
+
 
 
 DrawPanel
     Initializes the panel and reads the images and updates the display when called evey frame
+
+TimeListener
+    Updates the frame and car movment at every tick and action
