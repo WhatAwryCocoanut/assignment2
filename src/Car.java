@@ -26,15 +26,12 @@ public abstract class Car implements Movable {
         return y;
     }
 
-    public String getModelName(){
-        return modelName;
+    public int getDirection(){
+        return xy_direction_counter;
     }
 
-    // will cause it to clitch out if it doesn't return full on screen in one frame
-    public void collision (){
-        if(x < 0 || y < 0 || x > CarView.X - 115|| y > CarView.Y-240 - 60){
-            xy_direction_counter += 2;
-        }
+    public String getModelName(){
+        return modelName;
     }
 
     public double getEnginePower() {
@@ -74,6 +71,11 @@ public abstract class Car implements Movable {
     }
 
     protected abstract double speedFactor();
+
+    public void uTurn (){
+        turnRight();
+        turnRight();
+    }
     
     private void incrementSpeed(double amount) {
         if (amount > 0){
@@ -88,7 +90,6 @@ public abstract class Car implements Movable {
         }
         if (currentSpeed < 0) {currentSpeed = 0;}
     }
-
 
     public void gas(double amount) {
         if (0 <= amount && amount <= 1){      
@@ -109,10 +110,11 @@ public abstract class Car implements Movable {
 
     public void turnLeft(){
         xy_direction_counter--;
-        if (xy_direction_counter < 0){xy_direction_counter = 4;}
+        if (xy_direction_counter < 0){xy_direction_counter = 3;}
     }
 
     public void turnRight(){
         xy_direction_counter++;
+        if (xy_direction_counter > 3){xy_direction_counter = 0;}
     }
 }

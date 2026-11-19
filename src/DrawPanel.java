@@ -11,6 +11,8 @@ public class DrawPanel extends JPanel {
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
     BufferedImage saabImage;
+    int imageHeight = 60;
+    int imageWidth = 100;
     // To keep track of a single car's position
     ArrayList<Point> carPointList = new ArrayList<Point>();
     ArrayList<String> carNames = new ArrayList<String>();
@@ -42,9 +44,6 @@ public class DrawPanel extends JPanel {
         } catch (IOException ex)
         {
             ex.printStackTrace();
-        }
-        for(int i = 0; i < carPointList.size(); i++){
-            
         }
     }
 
