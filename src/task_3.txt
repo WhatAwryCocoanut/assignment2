@@ -9,7 +9,7 @@ Volvo240
 
 
 CarApplication
-    Creates a new view and add exisiting csrd to viewcars
+    Creates a new view and add exisiting cars to viewcars
 
 
 CarController
@@ -19,6 +19,7 @@ CarController
 CarView
     Adds all buttons and handels imputs from the buttons
     Creates the frame for the cars with buttons and connect them to methods in cars
+        Actions should be split in to it's own class
 
 
 
