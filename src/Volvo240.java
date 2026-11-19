@@ -5,14 +5,14 @@ public class Volvo240 extends Car{
 
     public final static double trimFactor = 1.25;
     
-    public Volvo240() {
+    public Volvo240(double x, double y) {
         nrDoors = 4;
         setColor(Color.black);
         enginePower = 100;
         modelName = "Volvo240";
         stopEngine();
-        x = 0;
-        y = 0;
+        this.x = x;
+        this.y = y;
         xy_direction_counter = 0;
     }
      

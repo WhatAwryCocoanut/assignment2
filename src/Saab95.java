@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Saab95 extends Car{
     
-    public Saab95() {
+    public Saab95(double x, double y) {
         nrDoors = 2;
         setColor(Color.red);
         enginePower = 125;
@@ -11,8 +11,8 @@ public class Saab95 extends Car{
         setTurboOff();
         modelName = "Saab95";
         stopEngine();
-        x = 100;
-        y = 300;
+        this.x =x;
+        this.y = y;
         xy_direction_counter = 0;
     }
         

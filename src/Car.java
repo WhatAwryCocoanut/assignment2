@@ -26,13 +26,12 @@ public abstract class Car implements Movable {
         return y;
     }
 
+    public int getDirection(){
+        return xy_direction_counter;
+    }
 
-    public void collision (){
-        if((x < 0 )||
-         y < 0 || x > CarView.X - 115|| y > CarView.Y-240 - 60){
-            turnRight();
-            turnRight();
-        }
+    public String getModelName(){
+        return modelName;
     }
 
     public double getEnginePower() {
@@ -72,6 +71,11 @@ public abstract class Car implements Movable {
     }
 
     protected abstract double speedFactor();
+
+    public void uTurn (){
+        turnRight();
+        turnRight();
+    }
     
     private void incrementSpeed(double amount) {
         if (amount > 0){
@@ -87,15 +91,12 @@ public abstract class Car implements Movable {
         if (currentSpeed < 0) {currentSpeed = 0;}
     }
 
-    
-    // TODO fix this method according to assignment pm
     public void gas(double amount) {
         if (0 <= amount && amount <= 1){      
         incrementSpeed(amount);
         }
     }
 
-    // TODO fix this method according to assignment pm
     public void brake(double amount) {
         if (0 <= amount && amount <= 1){
         decrementSpeed(amount);
@@ -109,15 +110,11 @@ public abstract class Car implements Movable {
 
     public void turnLeft(){
         xy_direction_counter--;
-        if (xy_direction_counter < 0){
-            xy_direction_counter = 3;
-        }
+        if (xy_direction_counter < 0){xy_direction_counter = 3;}
     }
 
     public void turnRight(){
         xy_direction_counter++;
-        if(xy_direction_counter > 3){
-            xy_direction_counter = 0;
-        }
+        if (xy_direction_counter > 3){xy_direction_counter = 0;}
     }
 }

@@ -1,0 +1,30 @@
+Car
+    Maniplulates the car in terms of velocity, direction and stores the information about the car
+
+Saab95
+    Determins the speedfactor for Saabs
+
+Volvo240
+    Determins the speedfactor for Volvos
+
+
+CarApplication
+    Creates a new view and add exisiting cars to viewcars
+
+
+CarController
+    Updates everything at runtime
+    command all cars to take actions when an action method is called 
+
+CarView
+    Adds all buttons and handels imputs from the buttons
+    Creates the frame for the cars with buttons and connect them to methods in cars
+        Actions should be split in to it's own class
+
+
+
+DrawPanel
+    Initializes the panel and reads the images and updates the display when called evey frame
+
+TimeListener
+    Updates the frame and car movment at every tick and action
