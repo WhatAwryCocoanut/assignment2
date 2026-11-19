@@ -28,8 +28,10 @@ public abstract class Car implements Movable {
 
 
     public void collision (){
-        if(x < 0 || y < 0 || x > CarView.X - 115|| y > CarView.Y-240 - 60){
-            xy_direction_counter += 2;
+        if((x < 0 )||
+         y < 0 || x > CarView.X - 115|| y > CarView.Y-240 - 60){
+            turnRight();
+            turnRight();
         }
     }
 
@@ -107,9 +109,15 @@ public abstract class Car implements Movable {
 
     public void turnLeft(){
         xy_direction_counter--;
+        if (xy_direction_counter < 0){
+            xy_direction_counter = 3;
+        }
     }
 
     public void turnRight(){
         xy_direction_counter++;
+        if(xy_direction_counter > 3){
+            xy_direction_counter = 0;
+        }
     }
 }
