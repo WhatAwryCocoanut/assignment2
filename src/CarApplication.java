@@ -2,7 +2,7 @@ void main() {
     // Instance of this class
     CarController cc = new CarController();
 
-    // TODO uncomment, and adapt if necessary
+    // ADD cars to the list of cars that will show up in the application
     cc.cars.add(new Volvo240(0, 0));
     cc.cars.add(new Saab95(300, 150));
 

@@ -20,7 +20,8 @@ public class CarController {
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
-    // TODO A list of cars, modify if needed
+
+    // create enmpty list of cars for the carApplicatiion
     ArrayList<Car> cars = new ArrayList<>();
     
 
