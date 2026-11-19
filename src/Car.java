@@ -91,15 +91,12 @@ public abstract class Car implements Movable {
         if (currentSpeed < 0) {currentSpeed = 0;}
     }
 
-    
-    // TODO fix this method according to assignment pm
     public void gas(double amount) {
         if (0 <= amount && amount <= 1){      
         incrementSpeed(amount);
         }
     }
 
-    // TODO fix this method according to assignment pm
     public void brake(double amount) {
         if (0 <= amount && amount <= 1){
         decrementSpeed(amount);
